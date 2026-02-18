@@ -12,4 +12,3 @@ def test_home(page):
     projects_button = page.get_by_role("link", name="Projects")
     projects_button.click()
     print("Projects:", page.url)
-    # pytbrowser.close()
