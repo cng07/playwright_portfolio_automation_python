@@ -5,10 +5,6 @@ class ProjectsPage:
         self.page = page
         self.pageProjects = page.get_by_role("link", name="Projects")
 
-
-    def navigate(self):
-        self.page.goto("https://carlosng07.vercel.app/")
-
     def click_projects(self):
         self.pageProjects.click()
 

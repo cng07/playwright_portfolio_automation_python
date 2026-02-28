@@ -3,7 +3,7 @@ from pages.ProjectsPage import ProjectsPage
 from pages.HomePage import HomePage
 
 
-def test_home_page_object(page):
+def test_projects_page(page):
     projects_page = ProjectsPage(page)
     home_page = HomePage(page)
 
