@@ -1,4 +1,5 @@
 from playwright.sync_api import sync_playwright
+from pages.HomePage import HomePage
 
 # with sync_playwright() as playwright:
 
@@ -8,7 +9,13 @@ def test_home(page):
     # page = browser.new_page()
     page.goto("https://carlosng07.vercel.app/")
     print(page.title())
-    # page.get_by_role("link", name="Get started").click()
     projects_button = page.get_by_role("link", name="Projects")
     projects_button.click()
+    print("Projects:", page.url)
+
+def test_home_page_object(page):
+    home_page = HomePage(page)
+    home_page.navigate()
+    print(page.title())
+    home_page.click_projects()
     print("Projects:", page.url)
