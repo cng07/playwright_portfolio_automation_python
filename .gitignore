@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# pytest-html artifacts
+reports/
+report*.html
+
+# report styling artifacts
+assets/style*.css
