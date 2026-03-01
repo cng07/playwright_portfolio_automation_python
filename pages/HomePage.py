@@ -4,7 +4,7 @@ class HomePage:
     def __init__(self, page: Page):
         self.page = page
         self.pageHome = page.get_by_role("link", name="Home")
-        self.pageProjects = page.get_by_role("link", name="Projects")
+        self.pageProjects = page.get_by_role("link", name="Projects", exact=True)
         self.pageResume = page.get_by_role("link", name="Resume")
         self.pageCertifications = page.get_by_role("link", name="Certifications")
         self.pageEducation = page.get_by_role("link", name="Education")
