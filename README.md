@@ -1,58 +1,53 @@
 # Playwright Portfolio Automation (Python)
 
-UI automation for a personal portfolio site using Playwright and pytest. The suite navigates the Home page, then validates Projects navigation and key headings using a Page Object Model.
+UI and API-link automation for `https://carlosng07.vercel.app/` using Playwright (sync API) + pytest, implemented with a Page Object Model structure mirrored from the TypeScript project.
 
-**Target site**
-- `https://carlosng07.vercel.app/`
+## Coverage
+- Home
+- Projects
+- Certifications
+- About
+- Contact
+- Education
+- Experience
+- Resume (including PDF download checks)
 
-**Key tooling**
-- Playwright (sync API)
-- pytest + pytest-playwright
-- pytest-html (HTML reports)
+## Project structure
+- `pages/Helper.py` - shared API-link helpers
+- `pages/HomePage.py`
+- `pages/ProjectsPage.py`
+- `pages/CertificationsPage.py`
+- `pages/AboutPage.py`
+- `pages/ContactPage.py`
+- `pages/EducationPage.py`
+- `pages/ExperiencePage.py`
+- `pages/ResumePage.py`
+- `tests/test_home.py`
+- `tests/test_project.py`
+- `tests/test_certification.py`
+- `tests/test_about.py`
+- `tests/test_contact.py`
+- `tests/test_education.py`
+- `tests/test_experience.py`
+- `tests/test_resume.py`
+- `conftest.py` - browser/page fixtures
+- `pytest.ini` - pytest defaults and report options
 
-**Project structure**
-- `pages/HomePage.py` - Page Object Model for Home navigation
-- `pages/ProjectsPage.py` - Page Object Model for Projects navigation and assertions
-- `tests/test_home.py` - Home/Projects navigation tests (direct + POM)
-- `tests/test_project.py` - Projects page assertions using the POM
-- `conftest.py` - Playwright fixtures (browser/page)
-- `pytest.ini` - pytest defaults and report config
-- `reports/` - generated HTML reports
-
-**Setup**
+## Setup
 1. Create and activate a virtual environment.
 2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+pip install -r requirements.txt
+```
 3. Install Playwright browsers:
-   ```bash
-   playwright install
-   ```
+```bash
+playwright install
+```
 
-**Run tests**
-- Default (uses `pytest.ini` addopts):
-  ```bash
-  pytest
-  ```
-- Single test:
-  ```bash
-  pytest tests/test_home.py -k test_home_page_object
-  ```
-- Projects tests:
-  ```bash
-  pytest tests/test_project.py
-  ```
+## Run tests
+```bash
+python -m pytest tests
+```
 
-**Reports**
-- HTML report is generated at `reports/report.html` (configured in `pytest.ini`).
-
-**Current runtime configuration**
-- `pytest.ini` sets:
-  - `--headed --browser chromium --slowmo=200`
-  - `--html=reports/report.html --self-contained-html`
-- `conftest.py` launches Chromium via Playwright sync API with:
-  - `headless=False`
-  - `slow_mo=500`
-
-If you want one source of truth for runtime options, consider aligning `pytest.ini` and `conftest.py` values.
+## Reports
+- HTML report is generated at `reports/report.html`.
