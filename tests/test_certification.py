@@ -1,17 +1,28 @@
-from playwright.sync_api import sync_playwright
-from pages.CertificationsPage import CertificationsPage
 from pages.HomePage import HomePage
+from pages.CertificationsPage import CertificationsPage
 
 
-def test_certifications_page(page):
+def test_verify_certifications_page_via_navigation_menu(page):
     certifications_page = CertificationsPage(page)
     home_page = HomePage(page)
 
-    home_page.navigate()
-    print(page.title())
-    certifications_page.click_certifications()
-    print("Certifications:", page.url)
-    certifications_page.verifyCertification1()
-    certifications_page.verifyCertification2()
-    certifications_page.verifyCertification3()
-    certifications_page.verifyCertification4()
+    home_page.go_to_home_page()
+    certifications_page.go_to_certifications_page_from_home_navigation()
+    certifications_page.verify_certifications_page_header()
+    certifications_page.verify_ctfl_certification()
+    certifications_page.verify_devops_certification()
+    certifications_page.verify_accenture_agile_certification()
+    certifications_page.verify_automation_anywhere_certification()
+    certifications_page.verify_certification_links()
+
+
+def test_verify_certifications_page_via_direct_url(page):
+    certifications_page = CertificationsPage(page)
+
+    certifications_page.go_to_certifications_page()
+    certifications_page.verify_certifications_page_header()
+    certifications_page.verify_ctfl_certification()
+    certifications_page.verify_devops_certification()
+    certifications_page.verify_accenture_agile_certification()
+    certifications_page.verify_automation_anywhere_certification()
+    certifications_page.verify_certification_links()
